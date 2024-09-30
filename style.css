@@ -1,0 +1,102 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+input,
+button {
+    font-size: 16px;
+}
+
+.head_nav {
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #e2edff;
+    color: white;
+}
+
+main {
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+section {
+    width: 45vw;
+    border-radius: 20px;
+    background: blue;
+}
+
+.h1_kotak {
+    background-color: #3effdf;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.isi_form {
+    margin: 20px;
+}
+
+.input_section {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.h2_kotak h2 {
+    text-align: center;
+    color: white;
+}
+
+.input_section .isi_form form .input {
+    margin: 10px 0;
+}
+
+.input_section .isi_form form button {
+    background-color: #3effdf;
+    color: white;
+    border: 0;
+    border-radius: 20px;
+    float: right;
+    display: block;
+    width: 30%;
+    padding: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.input_section .isi_form form .input input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border-radius: 15px;
+    margin-top: 10px;
+    border: #3effdf;
+    background-color: #E5CFF7;
+}
+
+.input_section .isi_form form .input label {
+    color: white;
+    font-weight: bold;
+}
+
+.input_section .isi_form form .input_inline {
+    margin: 12px 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.input_section .isi_form form .input_inline label {
+    color: white;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
