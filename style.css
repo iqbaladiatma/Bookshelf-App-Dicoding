@@ -1,23 +1,121 @@
 
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600&display=swap');
+
+/* CSS Custom Properties (Variables) */
+:root {
+    /* Fonts */
+    --font-primary: 'Open Sans', sans-serif;
+    --font-headings: 'Poppins', sans-serif;
+
+    /* Colors */
+    --color-bg-main: #f8f9fa;
+    --color-text-main: #212529;
+    --color-text-muted: #6c757d; /* Untuk teks sekunder seperti placeholder, dll. */
+    --color-text-book-detail: #495057; /* Khusus untuk detail buku .book_item p */
+    --color-primary: #007bff;
+    --color-primary-darker: #0056b3; /* Untuk hover tombol primer */
+    --color-white: #ffffff;
+    --color-danger: #dc3545;
+    --color-danger-darker: #c82333; /* Untuk hover tombol danger */
+    --color-success: #28a745;
+    --color-success-darker: #218838; /* Untuk hover tombol success */
+    
+    --color-input-bg: #ffffff;
+    --color-border-input: #ced4da;
+    --color-border-card: #e0e0e0; /* Untuk book_item */
+    
+    /* Shadows & Borders */
+    --border-radius-std: 6px; /* Radius standar untuk tombol, input, card kecil */
+    --border-radius-large: 20px; /* Radius lebih besar untuk section, container utama */
+    --box-shadow-soft: 0 1px 3px rgba(0,0,0,.05);         /* Untuk book_item */
+    --box-shadow-header: 0 2px 4px rgba(0,0,0,.075);    /* Untuk head_nav */
+    --box-shadow-focus-ring: 0 0 0 0.2rem rgba(0,123,255,.25); /* Untuk input focus */
+
+    /* Transitions */
+    --transition-std: .15s ease-in-out;
+}
+
+/* Base Reset & Body */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-input,
-button {
-    font-size: 16px;
+body {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 16px; /* Ukuran font dasar */
+    color: var(--color-text-main);
+    background-color: var(--color-bg-main); /* Latar belakang body juga bisa diatur */
 }
 
+/* Typography */
+input,
+button {
+    font-family: var(--font-primary);
+    font-size: 16px; 
+}
+
+/* Judul Utama Aplikasi di Header */
+.head_nav h1 { 
+    font-family: var(--font-headings);
+    font-weight: 600;
+    font-size: 2.5rem; 
+    margin-bottom: 10px; 
+}
+
+/* Judul H1 di dalam .h1_kotak */
+.h1_kotak h1 {
+    font-family: var(--font-headings);
+    font-weight: 600;
+    font-size: 1.5rem; 
+    text-align: center; 
+}
+
+/* Judul H2 di dalam .h2_kotak */
+.h2_kotak h2 {
+    font-family: var(--font-headings);
+    font-weight: 600;
+    font-size: 1.5rem; 
+    text-align: center;
+}
+
+/* Judul Item Buku */
+.book_item h3 {
+    font-family: var(--font-headings);
+    font-weight: 600;
+    font-size: 1.2rem; 
+    margin-bottom: 8px; 
+    color: var(--color-text-main); 
+}
+
+/* Paragraf di dalam Item Buku */
+.book_item p { 
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: var(--color-text-book-detail); 
+}
+
+/* Label Formulir */
+.input_section .isi_form form .input label,
+.input_section .isi_form form .input_inline label {
+    color: var(--color-text-main); 
+    font-weight: 600; 
+}
+
+/* Layout (Header, Main, Sections) */
 .head_nav {
     padding: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #e2edff;
-    color: white;
+    background-color: var(--color-primary); 
+    color: var(--color-white); 
+    box-shadow: var(--box-shadow-header); 
 }
 
 main {
@@ -29,64 +127,61 @@ main {
 }
 
 section {
-    width: 45vw;
-    border-radius: 20px;
-    background: blue;
+    flex-basis: 400px;
+    flex-grow: 1;
+    min-width: 320px; 
+    margin-bottom: 20px; 
+    border-radius: var(--border-radius-large); /* Menggunakan radius besar */
+    background-color: var(--color-bg-main); 
 }
 
-.h1_kotak {
-    background-color: #3effdf;
-    padding: 10px;
-    border-radius: 15px;
+.input_section { /* Kontainer untuk form input */
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--border-radius-large); /* Menggunakan radius besar */
+    /* Mungkin perlu background jika berbeda dari section, atau padding jika section tidak punya */
 }
 
-.isi_form {
+.isi_form { /* Kontainer di dalam input_section */
     margin: 20px;
 }
 
-.input_section {
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
+/* Components (Forms, Inputs, Buttons, Book Items) */
+
+/* Kotak Judul Bagian (misal "Tambah Buku", "Belum Selesai Dibaca") */
+.h1_kotak, .h2_kotak { 
+    background-color: var(--color-primary); 
+    padding: 12px 15px; 
+    border-radius: var(--border-radius-std); 
+    color: var(--color-white); 
 }
 
-.h2_kotak h2 {
-    text-align: center;
-    color: white;
-}
-
-.input_section .isi_form form .input {
+/* Input Fields */
+.input_section .isi_form form .input { /* Wrapper untuk label dan input */
     margin: 10px 0;
 }
 
-.input_section .isi_form form button {
-    background-color: #3effdf;
-    color: white;
-    border: 0;
-    border-radius: 20px;
-    float: right;
-    display: block;
-    width: 30%;
-    padding: 8px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.input_section .isi_form form .input input {
+.input_section .isi_form form .input input,
+#searchBookTitle { /* Targetkan juga input pencarian */
     display: block;
     width: 100%;
-    padding: 8px;
-    border-radius: 15px;
-    margin-top: 10px;
-    border: #3effdf;
-    background-color: #E5CFF7;
+    padding: 10px 12px; 
+    border-radius: var(--border-radius-std); 
+    margin-top: 10px; /* Jika input langsung setelah label */
+    border: 1px solid var(--color-border-input); 
+    background-color: var(--color-input-bg); 
+    transition: border-color var(--transition-std), box-shadow var(--transition-std);
+    font-family: var(--font-primary); /* Pastikan font diwarisi */
 }
 
-.input_section .isi_form form .input label {
-    color: white;
-    font-weight: bold;
+.input_section .isi_form form .input input:focus,
+#searchBookTitle:focus {
+    border-color: var(--color-primary); 
+    box-shadow: var(--box-shadow-focus-ring);
+    outline: none;
 }
 
+/* Input Inline (untuk checkbox) */
 .input_section .isi_form form .input_inline {
     margin: 12px 0;
     display: flex;
@@ -94,9 +189,174 @@ section {
     align-items: center;
 }
 
-.input_section .isi_form form .input_inline label {
-    color: white;
+/* Tombol Submit Form Utama */
+.input_section .isi_form form button {
+    background-color: var(--color-primary); 
+    color: var(--color-white); 
+    border: 0;
+    border-radius: var(--border-radius-std); 
+    display: block;
+    margin-left: auto; 
+    margin-top: 10px; 
+    padding: 10px 20px; 
+    cursor: pointer;
     font-weight: bold;
-    margin-right: 10px;
+    transition: background-color var(--transition-std), border-color var(--transition-std);
+}
+
+.input_section .isi_form form button:hover {
+    background-color: var(--color-primary-darker); 
+    border-color: var(--color-primary-darker); /* Jika ada border */
+}
+
+/* Tombol Submit Form Pencarian */
+#searchBookSubmit {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 10px 20px; 
+    border: 0;
+    border-radius: var(--border-radius-std); 
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color var(--transition-std), border-color var(--transition-std);
+}
+
+#searchBookSubmit:hover {
+    background-color: var(--color-primary-darker);
+    border-color: var(--color-primary-darker); /* Jika ada border */
+}
+
+/* Item Buku */
+.book_item {
+    background-color: var(--color-white);
+    padding: 15px;
+    border-radius: var(--border-radius-std); 
+    margin-bottom: 15px;
+    border: 1px solid var(--color-border-card); 
+    box-shadow: var(--box-shadow-soft); 
+}
+
+.book_item .action { /* Kontainer untuk tombol aksi di item buku */
+    margin-top: 15px;
+    display: flex;
+    gap: 10px; 
+    justify-content: flex-end; 
+}
+
+/* Tombol Aksi di Item Buku */
+.book_item .action button {
+    color: var(--color-white);
+    border: 0;
+    border-radius: var(--border-radius-std); 
+    padding: 8px 12px; 
+    font-size: 0.9rem; 
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color var(--transition-std), border-color var(--transition-std);
+}
+
+.book_item .action button.red {
+    background-color: var(--color-danger); 
+}
+.book_item .action button.red:hover {
+    background-color: var(--color-danger-darker);
+    border-color: var(--color-danger-darker); /* Jika ada border */
+}
+
+.book_item .action button.blue { 
+    background-color: var(--color-primary); 
+}
+.book_item .action button.blue:hover {
+    background-color: var(--color-primary-darker);
+    border-color: var(--color-primary-darker); /* Jika ada border */
+}
+
+.book_item .action button.green {
+    background-color: var(--color-success); 
+}
+.book_item .action button.green:hover {
+    background-color: var(--color-success-darker);
+    border-color: var(--color-success-darker); /* Jika ada border */
+}
+
+/* Tata Letak Form Pencarian (di luar item buku) */
+#searchBook { 
+    /* Bisa ditambahkan style jika perlu */
+}
+
+#searchBook form { 
+    display: flex;
+    gap: 10px; 
+    align-items: center; 
+}
+
+/* Tombol Generik (Jika masih digunakan atau untuk referensi) */
+button.primary { 
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: 0;
+    border-radius: var(--border-radius-large); /* Tombol generik ini masih pakai radius besar */
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+button.primary:hover {
+    background-color: var(--color-primary-darker);
+}
+
+button.danger {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+    border: 0;
+    border-radius: var(--border-radius-large); /* Tombol generik ini masih pakai radius besar */
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+button.danger:hover {
+    background-color: var(--color-danger-darker);
+}
+
+button.success {
+    background-color: var(--color-success);
+    color: var(--color-white);
+    border: 0;
+    border-radius: var(--border-radius-large); /* Tombol generik ini masih pakai radius besar */
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+button.success:hover {
+    background-color: var(--color-success-darker);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    section {
+        flex-basis: 100%; 
+        width: 90%;    
+        max-width: 500px; 
+    }
+
+    .input_section .isi_form form button,
+    #searchBookSubmit { 
+        width: 100%; 
+        margin-left: 0; 
+        text-align: center;
+    }
+
+    #searchBook form {
+        flex-direction: column; 
+        gap: 15px; 
+    }
+
+    #searchBookTitle { 
+        width: 100%;
+    }
 }
 
